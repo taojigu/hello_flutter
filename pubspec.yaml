@@ -20,11 +20,13 @@ dependencies:
   flutter:
     sdk: flutter
   
-  #http : 0.12.0
-  http:
-    git:
-      url : https://github.com/dart-lang/http
-      ref: master
+  http : 0.12.0
+  # http:
+  #   git:
+  #     url : https://github.com/dart-lang/http
+  #     ref: master
+
+  cached_network_image : 0.7.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +42,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    #  - images/a_dot_burr.jpeg
+    #  - images/a_dot_ham.jpeg
+      - images/lake.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
