@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DoubanMoviewPage extends StatefulWidget {
   @override
@@ -117,7 +118,7 @@ class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
 
   Widget _movieCell(var subject) {
 
-    return Container(
+    Container container = Container(
       padding: EdgeInsets.symmetric(vertical: 2),
       child: Row(
         children: <Widget>[
@@ -126,6 +127,18 @@ class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
         ],
       ),
     );
+    String altUrlString = subject["alt"];
+    GestureDetector dector = GestureDetector(
+      child: container,
+      onTap: () async {
+         if (await canLaunch(altUrlString)) {
+            await launch(altUrlString);
+          } else {
+            throw 'Could not launch $altUrlString';
+          }
+      },
+    );
+    return dector;
   }
 
   Widget _movieListView () {
