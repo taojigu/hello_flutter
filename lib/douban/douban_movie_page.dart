@@ -13,6 +13,7 @@ class DoubanMoviewPage extends StatefulWidget {
 class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
 
   List _movieList = [];
+  bool _isLoading = false;
 
   @override
   @override
@@ -39,6 +40,12 @@ class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
   }
 
   Widget _mainBody() {
+
+    if(_isLoading) {
+      return Center(
+        child: CircularProgressIndicator()); 
+    }
+
     if(_movieList.length == 0) {
       return _emptyMovieWidget();
     }
@@ -170,11 +177,17 @@ class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
   }
 
   Future<void> _requestDoubanMovie () async {
+
+    setState(() {
+      _isLoading = true;
+    });
+    
     var url = "https://api.douban.com/v2/movie/in_theaters";
     var response = await http.get(url);
     if (response.statusCode != 200 ) {
       setState(() {
         _movieList = [];
+        _isLoading = false;
       });
       return;
     }
@@ -182,6 +195,7 @@ class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
     var result = jsonDecode(response.body);
     setState(() {
       _movieList = result["subjects"];
+      _isLoading = false;
       debugPrint("movies are $_movieList");
     });
   }
