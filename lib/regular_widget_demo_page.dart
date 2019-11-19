@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/bloc/bloc_demo_page.dart';
 import 'listview_demo_page.dart';
 import 'layout/lake_page.dart';
 import 'douban/douban_movie_page.dart';
+import 'bloc/bloc_demo_page.dart';
 
 class RegularWidgetDemoPage extends StatefulWidget {
   @override
@@ -75,7 +77,8 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
             _pushListViewPageButton(),
             _pushRouterListViewPageButton(),
             _pushLakeButton(),
-            _pushDoubanButton()
+            _pushDoubanButton(),
+            _pushBlocPageButton(),
           ];
       return Scaffold(
         appBar: AppBar(
@@ -101,7 +104,6 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
           );
         }
       );
-
     }
             
     _pushLakeButton() {
@@ -150,6 +152,16 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
               new MaterialPageRoute(builder: (context) => new ListViewDemoPage()),
           );
         },
+      );
+    }
+
+    Widget _pushBlocPageButton() {
+      return RaisedButton(
+        child:Text('Bloc Demo'),
+        onPressed: () {
+          Navigator.push(context, 
+          new MaterialPageRoute(builder: (context) => new BlockDemoPage()));
+        }
       );
     }
 }

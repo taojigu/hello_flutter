@@ -34,7 +34,7 @@ class LakePage extends StatelessWidget {
               ],
             ),
           ),
-          //FavoriteWidget(),
+          FavoriteWidget(),
           //3
           Icon(
             Icons.star,
