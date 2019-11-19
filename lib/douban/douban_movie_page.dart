@@ -104,12 +104,6 @@ class _DoubanMoviewPageState extends State<DoubanMoviewPage> {
 
  Widget  _moviePosterWidget(var subject) {
     var posterUrl = subject['images']['large'];
-    var posterImage = Image.network(
-        posterUrl,
-        height: 150,
-        width: 100,
-        fit: BoxFit.fill,
-        );
     var cachedImage = CachedNetworkImage(
       imageUrl: posterUrl,
       placeholder:  (context, url) => new CircularProgressIndicator(),
