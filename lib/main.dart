@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'regular_widget_demo_page.dart';
 import 'listview_demo_page.dart';
+import 'gate/gate_page.dart';
 
 
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: RegularWidgetDemoPage(),
+      home: GatePage(),
       routes: {
         "/listViewDemoPage":(context)=> ListViewDemoPage()
       },
