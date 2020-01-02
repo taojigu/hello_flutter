@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/alert/alert_demo_page.dart';
 import 'package:hello_flutter/bloc/bloc_demo_page.dart';
 import 'listview_demo_page.dart';
 import 'layout/lake_page.dart';
@@ -12,7 +13,12 @@ class RegularWidgetDemoPage extends StatefulWidget {
 
 class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
 
-
+  @override
+  void initState() { 
+    super.initState();
+    //idgetsBinding.instance.addPostFrameCallb
+    
+  }
 
   Widget _pushRouterListViewPageButton () {
     return RaisedButton(
@@ -79,6 +85,7 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
             _pushLakeButton(),
             _pushDoubanButton(),
             _pushBlocPageButton(),
+            _pushAlertDemoPage(),
           ];
       return Scaffold(
         appBar: AppBar(
@@ -106,7 +113,7 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
       );
     }
             
-    _pushLakeButton() {
+    Widget _pushLakeButton() {
       return RaisedButton(
         child: Text("Lake"),
         onPressed: () {
@@ -161,6 +168,16 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
         onPressed: () {
           Navigator.push(context, 
           new MaterialPageRoute(builder: (context) => new BlockDemoPage()));
+        }
+      );
+    }
+
+    Widget _pushAlertDemoPage() {
+      return RaisedButton(
+        child:Text('Alert'),
+        onPressed: () {
+          Navigator.push(context, 
+          new MaterialPageRoute(builder: (context) => new AlertDemoPage()));
         }
       );
     }
