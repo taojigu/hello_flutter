@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/bloc/bloc_demo_page.dart';
+import 'package:hello_flutter/dialog_control/dialog_under_page.dart';
 import 'listview_demo_page.dart';
 import 'layout/lake_page.dart';
 import 'douban/douban_movie_page.dart';
@@ -79,6 +80,7 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
             _pushLakeButton(),
             _pushDoubanButton(),
             _pushBlocPageButton(),
+            _pushPushDialogUnderButton(),
           ];
       return Scaffold(
         appBar: AppBar(
@@ -162,6 +164,17 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
           Navigator.push(context, 
           new MaterialPageRoute(builder: (context) => new BlockDemoPage()));
         }
+      );
+    }
+
+    Widget _pushPushDialogUnderButton() {
+      return RaisedButton(
+        child: Text('UnderDialogControl'),
+        onPressed:  () {
+          
+           Navigator.push(context, 
+          new MaterialPageRoute(builder: (context) => new DialogUnderPage()));
+        },
       );
     }
 }
