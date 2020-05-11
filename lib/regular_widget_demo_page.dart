@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/bloc/bloc_demo_page.dart';
 import 'package:hello_flutter/dialog_control/dialog_under_page.dart';
+import 'package:hello_flutter/widget/top_tab_example.dart';
 import 'listview_demo_page.dart';
 import 'layout/lake_page.dart';
 import 'douban/douban_movie_page.dart';
@@ -81,6 +82,7 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
             _pushDoubanButton(),
             _pushBlocPageButton(),
             _pushPushDialogUnderButton(),
+            _pushTopTabbarWidget(),
           ];
       return Scaffold(
         appBar: AppBar(
@@ -88,8 +90,7 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
           backgroundColor: Colors.red,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: bodyChildren
           ),
         ),
@@ -176,5 +177,18 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
           new MaterialPageRoute(builder: (context) => new DialogUnderPage()));
         },
       );
+    }
+
+    Widget _pushTopTabbarWidget() {
+
+      return RaisedButton(
+        child: Text('TopTabExample'),
+        onPressed:  () {
+          
+           Navigator.push(context, 
+          new MaterialPageRoute(builder: (context) => new TopTabExample1()));
+        },
+      );
+
     }
 }
