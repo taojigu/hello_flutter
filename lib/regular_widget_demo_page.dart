@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/bloc/bloc_demo_page.dart';
 import 'package:hello_flutter/dialog_control/dialog_under_page.dart';
+import 'package:hello_flutter/image_picker/image_picker_demo.dart';
+import 'package:hello_flutter/sepecial_widget/inherited_widget_demo.dart';
 import 'listview_demo_page.dart';
 import 'layout/lake_page.dart';
 import 'douban/douban_movie_page.dart';
@@ -81,6 +83,8 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
             _pushDoubanButton(),
             _pushBlocPageButton(),
             _pushPushDialogUnderButton(),
+            _pushImagePickerDemoPage(),
+            _pushInheritedWidgetDemoPage(),
           ];
       return Scaffold(
         appBar: AppBar(
@@ -88,8 +92,7 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
           backgroundColor: Colors.red,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: bodyChildren
           ),
         ),
@@ -103,6 +106,16 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
         onPressed: () {
           Navigator.push(context, 
           new MaterialPageRoute(builder: (context) => new DoubanMoviewPage())  
+          );
+        }
+      );
+    }
+    Widget _pushInheritedWidgetDemoPage() {
+      return RaisedButton(
+        child: Text("InheritedWidget"),
+        onPressed: () {
+          Navigator.push(context, 
+            new MaterialPageRoute(builder: (context) => new InhertedWidgetDemo())  
           );
         }
       );
@@ -174,6 +187,17 @@ class _RegularWidgetDemoPageState extends State<RegularWidgetDemoPage> {
           
            Navigator.push(context, 
           new MaterialPageRoute(builder: (context) => new DialogUnderPage()));
+        },
+      );
+    }
+
+    Widget _pushImagePickerDemoPage() {
+      return RaisedButton(
+        child: Text('image picker'),
+        onPressed:  () {
+          
+           Navigator.push(context, 
+          new MaterialPageRoute(builder: (context) => new ImagePickerDemo()));
         },
       );
     }
